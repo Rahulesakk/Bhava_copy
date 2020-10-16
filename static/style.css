@@ -1,0 +1,15 @@
+
+.customers{
+	margin: 10px;
+}
+.customers td, .customers th {
+  border: 1px ;
+  padding: 8px;
+  margin: 10px;
+}
+
+ .td:nth-child(even){background-color: #f2f2f2;}
+
+ .td:hover {background-color: #ddd;}
+
+ 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bhavacopy</title>
+  <meta charset="utf-8">
+  <form action="/result" method=post>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  <style type="text/css">
+  	.jumbotron{
+  		text-align: center;
+  		margin: auto;
+  		background-color: #DCDCD4 ;
+  	}
+  	.TFtable{
+		width:100%; 
+		border-collapse:collapse; 
+	}
+	.TFtable th{
+		border:1px;
+		padding: 8px;
+		margin: 10px;
+			}
+	.TFtable td{ 
+		padding:7px; border:#4e95f4 1px solid;
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){ 
+		background: #b8d1f3;
+	}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background: #dae5f4;
+	}
+	.text{
+		width: 25px;
+		height: 10px;
+	}
+	.ser{
+		color: #4637F5 ;
+	}
+  </style>
+ </head> 
+ <body>
+ 	<div class="jumbotron text-center">
+	 	<h1 style="color:#33FFA8 ; " align="center">Welcome To Bhava Copy</h1>
+  		<h5>What is a Bhavcopy?<h5><p style="margin-left: 10px;margin-right: 10px;"> It is the End of Day data of Derivatives traded on the Indian Exchange NSE which can be used to predict the future movement of stocks as well as indices. Data which is provided in the Bhavcopy includes the following: Instrument – Future Index, Future Stock, Option Index, Option Stocks.</p> 
+	</div>
+
+	<p class="ser">Search By Name here </p>
+			<p> Name <input type="text" name="Name"  placeholder="Enter The Name" />
+
+			<input type='submit' value="submit"/></p>
+	</form>
+	<table class="TFtable"  >
+	<tr>
+		<th>Code</th>
+		<th>Name</th>
+		<th>Open</th>
+		<th>High</th>
+		<th>Low</th>		
+		<th>Close</th>
+	</tr>	
+	{% if userdetails[0]!=null %}
+	{% for user in userdetails %}
+	<tr  >
+		<td>{{user[0]}}</td>
+		<td>{{user[1]}}</td>
+		<td>{{user[2]}}</td>
+		<td>{{user[3]}}</td>
+		<td>{{user[4]}}</td>
+		<td>{{user[5]}}</td>
+	</tr>
+	{% endfor %}
+	{%else%}
+	<p style="color:red;">NO DATA FOUND</p>
+	{% endif %}
+	</table>
+
+	
+
+	
